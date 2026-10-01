@@ -1,0 +1,131 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-display: var(--font-grotesk), var(--font-inter), ui-sans-serif, sans-serif;
+
+  --color-paper: #f7f8fa;
+  --color-card: #ffffff;
+  --color-ink: #171c26;
+  --color-ink-2: #4b5563;
+  --color-ink-3: #8b93a1;
+  --color-line: #e6e9ef;
+  --color-line-2: #d5dae3;
+
+  --color-mint-50: #ecfdf5;
+  --color-mint-100: #d3f8e9;
+  --color-mint-200: #a7efd3;
+  --color-mint-500: #10b283;
+  --color-mint-600: #0fa678;
+  --color-mint-700: #0b7f5c;
+  --color-mint-900: #0a3d2e;
+
+  --radius-card: 16px;
+  --radius-ctrl: 10px;
+
+  --shadow-card: 0 1px 2px rgba(23, 28, 38, 0.04), 0 8px 24px -12px rgba(23, 28, 38, 0.12);
+  --shadow-pop: 0 4px 10px -2px rgba(23, 28, 38, 0.08), 0 16px 40px -16px rgba(23, 28, 38, 0.22);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "cv11", "ss01";
+}
+
+::selection {
+  background: var(--color-mint-200);
+}
+
+/* dotted studio canvas */
+.canvas-dots {
+  background-image: radial-gradient(circle, #d9dee6 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+/* thin scrollbars in panels */
+.thin-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-line-2) transparent;
+}
+.thin-scroll::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.thin-scroll::-webkit-scrollbar-thumb {
+  background: var(--color-line-2);
+  border-radius: 4px;
+}
+
+/* data grid inputs */
+.cell-input {
+  width: 100%;
+  min-width: 0;
+  padding: 7px 10px;
+  font-size: 13px;
+  background: transparent;
+  outline: none;
+  border-radius: 6px;
+}
+.cell-input:focus {
+  background: var(--color-mint-50);
+  box-shadow: inset 0 0 0 1.5px var(--color-mint-500);
+}
+
+/* prose for SEO content sections */
+.content h2 {
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin: 2.4rem 0 0.8rem;
+}
+.content h3 {
+  font-size: 1.08rem;
+  font-weight: 600;
+  margin: 1.7rem 0 0.5rem;
+}
+.content p,
+.content li {
+  color: var(--color-ink-2);
+  line-height: 1.7;
+  font-size: 0.97rem;
+}
+.content p {
+  margin: 0.65rem 0;
+}
+.content ol,
+.content ul {
+  margin: 0.7rem 0 0.7rem 1.3rem;
+}
+.content ol {
+  list-style: decimal;
+}
+.content ul {
+  list-style: disc;
+}
+.content li {
+  margin: 0.35rem 0;
+  padding-left: 0.2rem;
+}
+.content a {
+  color: var(--color-mint-700);
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--color-mint-200);
+}
+.content a:hover {
+  text-decoration-color: var(--color-mint-500);
+}
+.content strong {
+  color: var(--color-ink);
+  font-weight: 600;
+}
