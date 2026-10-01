@@ -25,7 +25,7 @@ export async function generateMetadata({
       title: maker.metaTitle,
       description: maker.metaDescription,
       url: `/${maker.slug}`,
-      siteName: "Chartmint",
+      siteName: "Graphmint",
       type: "website",
       images: [{ url: `/og/${maker.slug}.png`, width: 1200, height: 630 }],
     },

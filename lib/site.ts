@@ -1,2 +1,2 @@
-export const SITE_URL = "https://chartmint.vercel.app";
-export const SITE_NAME = "Chartmint";
+export const SITE_URL = "https://graphmint.vercel.app";
+export const SITE_NAME = "Graphmint";

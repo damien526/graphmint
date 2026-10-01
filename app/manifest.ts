@@ -2,8 +2,8 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Chartmint — Free Chart Maker",
-    short_name: "Chartmint",
+    name: "Graphmint — Free Chart Maker",
+    short_name: "Graphmint",
     description:
       "Make beautiful charts online in seconds. Free, no sign-up, PNG & SVG export.",
     start_url: "/",

@@ -21,12 +21,12 @@ const grotesk = localFont({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Chartmint — Free Chart Maker, No Sign-Up",
-    template: "%s | Chartmint",
+    default: "Graphmint — Free Chart Maker, No Sign-Up",
+    template: "%s | Graphmint",
   },
   description:
     "Make beautiful charts online in seconds. Free chart maker with no sign-up: paste your data, pick a style, download as PNG or SVG.",
-  applicationName: "Chartmint",
+  applicationName: "Graphmint",
   keywords: [
     "chart maker",
     "graph maker",

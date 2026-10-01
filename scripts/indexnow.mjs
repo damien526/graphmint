@@ -2,7 +2,7 @@
 // Run manually after a production deploy: npm run indexnow
 
 const KEY = "33e7ae70d2ea7034e4f12afd0a4f361e";
-const SITE = "https://chartmint.vercel.app";
+const SITE = "https://graphmint.vercel.app";
 
 const SLUGS = [
   "",

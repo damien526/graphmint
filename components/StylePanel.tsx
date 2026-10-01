@@ -162,7 +162,7 @@ export function StylePanel({
           </>
         )}
         <Toggle
-          label="chartmint.app caption"
+          label="graphmint.vercel.app caption"
           checked={options.watermark}
           onChange={(watermark) => onChange({ watermark })}
         />

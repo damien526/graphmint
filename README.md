@@ -1,8 +1,8 @@
-# Chartmint
+# Graphmint
 
 **Beautiful charts in seconds.** Free online chart maker — no sign-up, no watermark lock-in, and your data never leaves the browser.
 
-🌐 **[chartmint.vercel.app](https://chartmint.vercel.app)**
+🌐 **[graphmint.vercel.app](https://graphmint.vercel.app)**
 
 ## What it does
 

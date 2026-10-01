@@ -9,7 +9,7 @@ import { DataPanel } from "./DataPanel";
 import { StylePanel } from "./StylePanel";
 import { TypePicker } from "./TypePicker";
 
-const STORE_PREFIX = "chartmint:v1:";
+const STORE_PREFIX = "graphmint:v1:";
 
 export function Studio({ initialType }: { initialType: ChartType }) {
   const [spec, setSpec] = useState<ChartSpec>(() => sampleSpec(initialType));

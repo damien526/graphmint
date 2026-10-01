@@ -7,22 +7,22 @@ import { MAKERS } from "@/lib/makers";
 import { SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: { absolute: "Free Chart Maker — Beautiful Charts in Seconds, No Sign-Up | Chartmint" },
+  title: { absolute: "Free Chart Maker — Beautiful Charts in Seconds, No Sign-Up | Graphmint" },
   description:
     "Make beautiful charts online for free. Paste data from Excel or Sheets, pick a gorgeous palette, and download your chart as PNG or SVG. No account, no watermark lock-in.",
   alternates: { canonical: "/" },
   openGraph: {
-    title: "Chartmint — Free Chart Maker, No Sign-Up",
+    title: "Graphmint — Free Chart Maker, No Sign-Up",
     description:
       "Beautiful bar, line, pie, donut, area and scatter charts in seconds. Free, private, PNG & SVG export.",
     url: "/",
-    siteName: "Chartmint",
+    siteName: "Graphmint",
     type: "website",
     images: [{ url: "/og/home.png", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Chartmint — Free Chart Maker, No Sign-Up",
+    title: "Graphmint — Free Chart Maker, No Sign-Up",
     description:
       "Beautiful bar, line, pie, donut, area and scatter charts in seconds. Free, private, PNG & SVG export.",
     images: ["/og/home.png"],
@@ -31,8 +31,8 @@ export const metadata: Metadata = {
 
 const HOME_FAQ = [
   {
-    q: "Is Chartmint really free?",
-    a: "Yes — every chart type, every palette, and every export format (PNG, SVG, clipboard, share links) is free, with no account and no credit card. The small chartmint.app caption on charts can be switched off with one toggle.",
+    q: "Is Graphmint really free?",
+    a: "Yes — every chart type, every palette, and every export format (PNG, SVG, clipboard, share links) is free, with no account and no credit card. The small graphmint.vercel.app caption on charts can be switched off with one toggle.",
   },
   {
     q: "Do I need to create an account?",
@@ -40,7 +40,7 @@ const HOME_FAQ = [
   },
   {
     q: "Is my data private?",
-    a: "Completely. Chartmint renders everything inside your browser; your numbers are never uploaded to a server. Even share links work without a server — the entire chart is compressed into the link itself.",
+    a: "Completely. Graphmint renders everything inside your browser; your numbers are never uploaded to a server. Even share links work without a server — the entire chart is compressed into the link itself.",
   },
   {
     q: "What chart types can I make?",
@@ -51,7 +51,7 @@ const HOME_FAQ = [
     a: "Yes. Charts you create belong to you and can be used anywhere — business reports, articles, client work, social media, books. No attribution is required.",
   },
   {
-    q: "How is Chartmint different from Excel or Canva?",
+    q: "How is Graphmint different from Excel or Canva?",
     a: "Speed and craft. There is no software to open and no account wall: you get a well-designed chart with curated palettes and clean typography in under a minute, and it exports at high resolution as PNG or true vector SVG.",
   },
 ];
@@ -71,7 +71,7 @@ export default function HomePage() {
     {
       "@context": "https://schema.org",
       "@type": "WebApplication",
-      name: "Chartmint",
+      name: "Graphmint",
       url: SITE_URL,
       applicationCategory: "DesignApplication",
       operatingSystem: "Any (web browser)",
@@ -113,7 +113,7 @@ export default function HomePage() {
 
         <Studio initialType="bar" />
 
-        <section className="mt-20 grid gap-4 sm:grid-cols-3" aria-label="Why Chartmint">
+        <section className="mt-20 grid gap-4 sm:grid-cols-3" aria-label="Why Graphmint">
           {[
             {
               title: "Zero friction",

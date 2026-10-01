@@ -50,7 +50,7 @@ export function MakerLanding({ maker }: { maker: MakerPage }) {
     {
       "@context": "https://schema.org",
       "@type": "WebApplication",
-      name: `${maker.h1} — Chartmint`,
+      name: `${maker.h1} — Graphmint`,
       url: `${SITE_URL}/${maker.slug}`,
       applicationCategory: "DesignApplication",
       operatingSystem: "Any (web browser)",
@@ -81,7 +81,7 @@ export function MakerLanding({ maker }: { maker: MakerPage }) {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Chartmint", item: SITE_URL },
+        { "@type": "ListItem", position: 1, name: "Graphmint", item: SITE_URL },
         { "@type": "ListItem", position: 2, name: maker.h1, item: `${SITE_URL}/${maker.slug}` },
       ],
     },

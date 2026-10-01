@@ -10,7 +10,7 @@ export function Logo() {
         <rect x="20.5" y="13" width="4.5" height="12" rx="1.5" fill="#fff" opacity="0.9" />
       </svg>
       <span className="font-display text-[19px] font-semibold tracking-tight text-ink">
-        chartmint
+        graphmint
       </span>
     </span>
   );
@@ -20,7 +20,7 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-40 border-b border-line bg-paper/85 backdrop-blur-md">
       <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-4 sm:px-6">
-        <Link href="/" aria-label="Chartmint home">
+        <Link href="/" aria-label="Graphmint home">
           <Logo />
         </Link>
         <nav aria-label="Popular chart makers" className="flex items-center gap-1">
@@ -89,7 +89,7 @@ export function SiteFooter() {
           </nav>
         </div>
         <p className="mt-10 border-t border-line pt-6 text-[12.5px] text-ink-3">
-          © {new Date().getFullYear()} Chartmint. Made for everyone who needs a
+          © {new Date().getFullYear()} Graphmint. Made for everyone who needs a
           clean chart, fast.
         </p>
       </div>
