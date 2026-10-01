@@ -69,7 +69,7 @@ export function Studio({ initialType }: { initialType: ChartType }) {
     try {
       await fn();
     } catch {
-      showToast("Something went wrong — try again");
+      showToast("Something went wrong, try again");
     } finally {
       setBusy(null);
     }

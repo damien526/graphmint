@@ -21,7 +21,7 @@ const grotesk = localFont({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Graphmint — Free Chart Maker, No Sign-Up",
+    default: "Graphmint: Free Chart Maker, No Sign-Up",
     template: "%s | Graphmint",
   },
   description:

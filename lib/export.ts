@@ -1,4 +1,4 @@
-/** Client-side chart export: SVG, PNG (1–3x), clipboard. */
+/** Client-side chart export: SVG, PNG (1-3x), clipboard. */
 
 let fontCssPromise: Promise<string> | null = null;
 

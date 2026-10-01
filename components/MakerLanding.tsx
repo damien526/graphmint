@@ -50,7 +50,7 @@ export function MakerLanding({ maker }: { maker: MakerPage }) {
     {
       "@context": "https://schema.org",
       "@type": "WebApplication",
-      name: `${maker.h1} — Graphmint`,
+      name: `${maker.h1} | Graphmint`,
       url: `${SITE_URL}/${maker.slug}`,
       applicationCategory: "DesignApplication",
       operatingSystem: "Any (web browser)",

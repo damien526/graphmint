@@ -7,12 +7,12 @@ import { MAKERS } from "@/lib/makers";
 import { SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: { absolute: "Free Chart Maker — Beautiful Charts in Seconds, No Sign-Up | Graphmint" },
+  title: { absolute: "Free Chart Maker: Beautiful Charts in Seconds, No Sign-Up | Graphmint" },
   description:
     "Make beautiful charts online for free. Paste data from Excel or Sheets, pick a gorgeous palette, and download your chart as PNG or SVG. No account, no watermark lock-in.",
   alternates: { canonical: "/" },
   openGraph: {
-    title: "Graphmint — Free Chart Maker, No Sign-Up",
+    title: "Graphmint: Free Chart Maker, No Sign-Up",
     description:
       "Beautiful bar, line, pie, donut, area and scatter charts in seconds. Free, private, PNG & SVG export.",
     url: "/",
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Graphmint — Free Chart Maker, No Sign-Up",
+    title: "Graphmint: Free Chart Maker, No Sign-Up",
     description:
       "Beautiful bar, line, pie, donut, area and scatter charts in seconds. Free, private, PNG & SVG export.",
     images: ["/og/home.png"],
@@ -32,15 +32,15 @@ export const metadata: Metadata = {
 const HOME_FAQ = [
   {
     q: "Is Graphmint really free?",
-    a: "Yes — every chart type, every palette, and every export format (PNG, SVG, clipboard, share links) is free, with no account and no credit card. The small graphmint.vercel.app caption on charts can be switched off with one toggle.",
+    a: "Yes: every chart type, every palette, and every export format (PNG, SVG, clipboard, share links) is free, with no account and no credit card. The small graphmint.vercel.app caption on charts can be switched off with one toggle.",
   },
   {
     q: "Do I need to create an account?",
-    a: "No. Open the page, type or paste your data, download your chart. Your work is autosaved in your own browser so it’s still there when you come back — no login involved.",
+    a: "No. Open the page, type or paste your data, download your chart. Your work is autosaved in your own browser so it’s still there when you come back, no login involved.",
   },
   {
     q: "Is my data private?",
-    a: "Completely. Graphmint renders everything inside your browser; your numbers are never uploaded to a server. Even share links work without a server — the entire chart is compressed into the link itself.",
+    a: "Completely. Graphmint renders everything inside your browser; your numbers are never uploaded to a server. Even share links work without a server: the entire chart is compressed into the link itself.",
   },
   {
     q: "What chart types can I make?",
@@ -48,7 +48,7 @@ const HOME_FAQ = [
   },
   {
     q: "Can I use the charts commercially?",
-    a: "Yes. Charts you create belong to you and can be used anywhere — business reports, articles, client work, social media, books. No attribution is required.",
+    a: "Yes. Charts you create belong to you and can be used anywhere: business reports, articles, client work, social media, books. No attribution is required.",
   },
   {
     q: "How is Graphmint different from Excel or Canva?",
@@ -57,7 +57,7 @@ const HOME_FAQ = [
 ];
 
 const TYPE_BLURBS: Record<string, string> = {
-  "bar-graph-maker": "Compare categories at a glance — grouped or stacked.",
+  "bar-graph-maker": "Compare categories at a glance, grouped or stacked.",
   "horizontal-bar-chart-maker": "Rankings and long labels, perfectly readable.",
   "line-graph-maker": "Trends over time, one line per series.",
   "area-chart-maker": "Totals and their composition, beautifully stacked.",
@@ -76,7 +76,7 @@ export default function HomePage() {
       applicationCategory: "DesignApplication",
       operatingSystem: "Any (web browser)",
       description:
-        "Free online chart maker. Create bar, line, pie, donut, area and scatter charts and export them as PNG or SVG — no sign-up.",
+        "Free online chart maker. Create bar, line, pie, donut, area and scatter charts and export them as PNG or SVG, no sign-up.",
       offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
     },
     {
@@ -104,7 +104,7 @@ export default function HomePage() {
           </h1>
           <p className="mx-auto mt-5 max-w-2xl text-[16px] leading-relaxed text-ink-2 sm:text-[17px]">
             The free chart maker that skips the sign-up form. Paste your data,
-            pick a palette, download a chart that looks designed — not defaulted.
+            pick a palette, download a chart that looks designed, not defaulted.
           </p>
           <div className="mt-6">
             <TrustBadges />
@@ -117,7 +117,7 @@ export default function HomePage() {
           {[
             {
               title: "Zero friction",
-              text: "No account, no download, no paywall between you and your chart. Open the page and start typing — your work autosaves in your browser.",
+              text: "No account, no download, no paywall between you and your chart. Open the page and start typing: your work autosaves in your browser.",
             },
             {
               title: "Designed, not defaulted",
@@ -125,7 +125,7 @@ export default function HomePage() {
             },
             {
               title: "Private by architecture",
-              text: "Your data never leaves your device — rendering, exports, even share links are computed locally. Safe for numbers you can’t paste into random websites.",
+              text: "Your data never leaves your device: rendering, exports, even share links are computed locally. Safe for numbers you can’t paste into random websites.",
             },
           ].map((f) => (
             <div key={f.title} className="rounded-card border border-line bg-card p-6 shadow-card">
