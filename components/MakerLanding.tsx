@@ -91,7 +91,7 @@ export function MakerLanding({ maker }: { maker: MakerPage }) {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
       />
       <SiteHeader />
       <main className="mx-auto max-w-6xl px-4 sm:px-6">

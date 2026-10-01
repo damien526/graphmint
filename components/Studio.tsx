@@ -3,7 +3,7 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import type { ChartSpec, ChartType } from "@/lib/types";
 import { Chart } from "@/lib/chart/Chart";
-import { sampleSpec, encodeSpec, decodeSpec } from "@/lib/data";
+import { sampleSpec, encodeSpec, decodeSpec, sanitizeSpec } from "@/lib/data";
 import { downloadPng, downloadSvg, copyPngToClipboard, slugForFilename } from "@/lib/export";
 import { DataPanel } from "./DataPanel";
 import { StylePanel } from "./StylePanel";
@@ -35,8 +35,8 @@ export function Studio({ initialType }: { initialType: ChartType }) {
       try {
         const raw = localStorage.getItem(STORE_PREFIX + initialType);
         if (raw && !cancelled) {
-          const saved = JSON.parse(raw) as ChartSpec;
-          if (saved?.type && saved?.data) setSpec(saved);
+          const saved = sanitizeSpec(JSON.parse(raw));
+          if (saved) setSpec(saved);
         }
       } catch {}
       hydrated.current = true;

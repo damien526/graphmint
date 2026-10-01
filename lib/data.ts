@@ -1,5 +1,64 @@
-import type { ChartData, ChartSpec, ChartType } from "./types";
+import type { ChartData, ChartOptions, ChartSpec, ChartType } from "./types";
 import { DEFAULT_OPTIONS } from "./types";
+import { PALETTES } from "./palettes";
+
+const CHART_TYPES: ChartType[] = ["bar", "bar-horizontal", "line", "area", "pie", "donut", "scatter"];
+const MAX_ROWS = 500;
+const MAX_SERIES = 12;
+const MAX_DECODED_JSON = 2_000_000; // bytes of JSON a share link may expand to
+
+/**
+ * Validate and clamp a spec coming from an untrusted source
+ * (share-link hash or localStorage). Returns null if unusable.
+ */
+export function sanitizeSpec(raw: unknown): ChartSpec | null {
+  if (!raw || typeof raw !== "object") return null;
+  const r = raw as Record<string, unknown>;
+  if (!CHART_TYPES.includes(r.type as ChartType)) return null;
+
+  const d = r.data as { labels?: unknown; series?: unknown } | undefined;
+  if (!d || !Array.isArray(d.labels) || !Array.isArray(d.series)) return null;
+
+  const labels = d.labels.slice(0, MAX_ROWS).map((l) => String(l ?? "").slice(0, 200));
+  const series = d.series.slice(0, MAX_SERIES).map((s, i) => {
+    const sr = (s ?? {}) as { name?: unknown; values?: unknown };
+    const values = (Array.isArray(sr.values) ? sr.values : [])
+      .slice(0, labels.length)
+      .map((v) => (typeof v === "number" && isFinite(v) ? v : null));
+    while (values.length < labels.length) values.push(null);
+    return { name: String(sr.name ?? `Series ${i + 1}`).slice(0, 120), values };
+  });
+  if (!series.length) return null;
+
+  const o = (r.options ?? {}) as Record<string, unknown>;
+  const str = (v: unknown, max: number, fallback: string) =>
+    typeof v === "string" ? v.slice(0, max) : fallback;
+  const bool = (v: unknown, fallback: boolean) => (typeof v === "boolean" ? v : fallback);
+  const pick = <T,>(v: unknown, allowed: readonly T[], fallback: T): T =>
+    allowed.includes(v as T) ? (v as T) : fallback;
+
+  const options: ChartOptions = {
+    title: str(o.title, 200, DEFAULT_OPTIONS.title),
+    subtitle: str(o.subtitle, 300, DEFAULT_OPTIONS.subtitle),
+    xLabel: str(o.xLabel, 120, DEFAULT_OPTIONS.xLabel),
+    yLabel: str(o.yLabel, 120, DEFAULT_OPTIONS.yLabel),
+    palette: PALETTES.some((p) => p.id === o.palette) ? (o.palette as string) : DEFAULT_OPTIONS.palette,
+    background: pick(o.background, ["white", "cream", "dark", "transparent"] as const, DEFAULT_OPTIONS.background),
+    legend: pick(o.legend, ["top", "bottom", "none"] as const, DEFAULT_OPTIONS.legend),
+    aspect: pick(o.aspect, ["wide", "classic", "square"] as const, DEFAULT_OPTIONS.aspect),
+    fontScale: pick(o.fontScale, [0.85, 1, 1.2] as const, DEFAULT_OPTIONS.fontScale),
+    showValues: bool(o.showValues, DEFAULT_OPTIONS.showValues),
+    showGrid: bool(o.showGrid, DEFAULT_OPTIONS.showGrid),
+    smooth: bool(o.smooth, DEFAULT_OPTIONS.smooth),
+    stacked: bool(o.stacked, DEFAULT_OPTIONS.stacked),
+    rounded: bool(o.rounded, DEFAULT_OPTIONS.rounded),
+    showPercent: bool(o.showPercent, DEFAULT_OPTIONS.showPercent),
+    sortSlices: bool(o.sortSlices, DEFAULT_OPTIONS.sortSlices),
+    watermark: bool(o.watermark, DEFAULT_OPTIONS.watermark),
+  };
+
+  return { type: r.type as ChartType, data: { labels, series }, options };
+}
 
 /** Parse pasted TSV/CSV text (from Excel, Sheets, or a .csv file) into ChartData. */
 export function parseDelimited(text: string): ChartData | null {
@@ -116,9 +175,8 @@ export async function decodeSpec(hash: string): Promise<ChartSpec | null> {
     const bytes = base64UrlToBytes(hash);
     const stream = new Blob([bytes.buffer as ArrayBuffer]).stream().pipeThrough(new DecompressionStream("deflate-raw"));
     const json = await new Response(stream).text();
-    const spec = JSON.parse(json) as ChartSpec;
-    if (!spec?.type || !spec?.data || !spec?.options) return null;
-    return { ...spec, options: { ...DEFAULT_OPTIONS, ...spec.options } };
+    if (json.length > MAX_DECODED_JSON) return null;
+    return sanitizeSpec(JSON.parse(json));
   } catch {
     return null;
   }

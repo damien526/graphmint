@@ -88,10 +88,23 @@ export function SiteFooter() {
             </ul>
           </nav>
         </div>
-        <p className="mt-10 border-t border-line pt-6 text-[12.5px] text-ink-3">
-          © {new Date().getFullYear()} Graphmint. Made for everyone who needs a
-          clean chart, fast.
-        </p>
+        <div className="mt-10 flex flex-col gap-3 border-t border-line pt-6 text-[12.5px] text-ink-3 sm:flex-row sm:items-center sm:justify-between">
+          <p>
+            © {new Date().getFullYear()} Graphmint. Made for everyone who needs a
+            clean chart, fast.
+          </p>
+          <nav aria-label="Legal" className="flex items-center gap-4">
+            <Link href="/privacy" className="transition hover:text-mint-700">
+              Privacy
+            </Link>
+            <Link href="/terms" className="transition hover:text-mint-700">
+              Terms
+            </Link>
+            <a href="mailto:damienyvert.dev@gmail.com" className="transition hover:text-mint-700">
+              Contact
+            </a>
+          </nav>
+        </div>
       </div>
     </footer>
   );
