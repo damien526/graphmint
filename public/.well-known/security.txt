@@ -1,0 +1,5 @@
+Contact: mailto:damienyvert.dev@gmail.com
+Expires: 2027-10-01T00:00:00.000Z
+Preferred-Languages: en, fr
+Canonical: https://www.graphmint.app/.well-known/security.txt
+Policy: https://www.graphmint.app/privacy

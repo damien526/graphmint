@@ -47,6 +47,15 @@ function HeaderLink({ href, children }: { href: string; children: React.ReactNod
   );
 }
 
+// Sister tools, same maker and same promise: free, no account, nothing leaves
+// the browser. External links, so they use <a> rather than next/link.
+const SISTER_TOOLS = [
+  { href: "https://www.squeezevid.app", label: "SqueezeVid: compress video to a target size" },
+  { href: "https://www.onlinecull.com", label: "OnlineCull: cull photos in your browser" },
+  { href: "https://www.papercv.app", label: "PaperCV: free resume builder" },
+  { href: "https://www.music-waveform.com", label: "Waveform: audio visualizer" },
+];
+
 const FOOTER_LINKS = [
   { href: "/", label: "Chart maker" },
   { href: "/bar-graph-maker", label: "Bar graph maker" },
@@ -62,7 +71,7 @@ export function SiteFooter() {
   return (
     <footer className="mt-20 border-t border-line bg-card">
       <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
-        <div className="flex flex-col justify-between gap-10 sm:flex-row">
+        <div className="flex flex-col justify-between gap-10 sm:flex-row sm:flex-wrap">
           <div className="max-w-xs">
             <Logo />
             <p className="mt-3 text-[13.5px] leading-relaxed text-ink-3">
@@ -83,6 +92,24 @@ export function SiteFooter() {
                   >
                     {l.label}
                   </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+          <nav aria-label="More free tools">
+            <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.08em] text-ink-3">
+              More free tools
+            </p>
+            <ul className="space-y-2">
+              {SISTER_TOOLS.map((t) => (
+                <li key={t.href}>
+                  <a
+                    href={t.href}
+                    rel="noopener"
+                    className="text-[13.5px] text-ink-2 transition hover:text-mint-700"
+                  >
+                    {t.label}
+                  </a>
                 </li>
               ))}
             </ul>
