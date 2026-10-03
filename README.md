@@ -2,7 +2,7 @@
 
 **Beautiful charts in seconds.** Free online chart maker: no sign-up, no watermark lock-in, and your data never leaves the browser.
 
-🌐 **[graphmint.vercel.app](https://graphmint.vercel.app)**
+🌐 **[graphmint.app](https://www.graphmint.app)**
 
 ## What it does
 

@@ -32,7 +32,7 @@ export const metadata: Metadata = {
 const HOME_FAQ = [
   {
     q: "Is Graphmint really free?",
-    a: "Yes: every chart type, every palette, and every export format (PNG, SVG, clipboard, share links) is free, with no account and no credit card. The small graphmint.vercel.app caption on charts can be switched off with one toggle.",
+    a: "Yes: every chart type, every palette, and every export format (PNG, SVG, clipboard, share links) is free, with no account and no credit card. The small graphmint.app caption on charts can be switched off with one toggle.",
   },
   {
     q: "Do I need to create an account?",

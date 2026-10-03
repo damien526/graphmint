@@ -157,7 +157,7 @@ function Watermark({ L }: { L: Layout }) {
       textAnchor="end"
       fontWeight={500}
     >
-      graphmint.vercel.app
+      graphmint.app
     </text>
   );
 }

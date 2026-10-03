@@ -63,7 +63,7 @@ export const MAKERS: MakerPage[] = [
     faq: [
       {
         q: "Is this bar graph maker really free?",
-        a: "Yes. Every feature on this page (unlimited charts, every palette, PNG, SVG and clipboard export) is free and requires no account. There is no watermark you can’t remove: the small graphmint.vercel.app caption can be switched off in the Details panel.",
+        a: "Yes. Every feature on this page (unlimited charts, every palette, PNG, SVG and clipboard export) is free and requires no account. There is no watermark you can’t remove: the small graphmint.app caption can be switched off in the Details panel.",
       },
       {
         q: "Can I paste data from Excel or Google Sheets?",
@@ -355,7 +355,7 @@ export const MAKERS: MakerPage[] = [
       },
       {
         q: "Is the download really free, without a watermark?",
-        a: "Yes. PNG, SVG and clipboard export are all free with no account. A small graphmint.vercel.app caption appears by default and can be turned off with one toggle before you export.",
+        a: "Yes. PNG, SVG and clipboard export are all free with no account. A small graphmint.app caption appears by default and can be turned off with one toggle before you export.",
       },
     ],
     related: [
@@ -422,7 +422,7 @@ export const MAKERS: MakerPage[] = [
       },
       {
         q: "Can I use the chart commercially?",
-        a: "Yes. Charts you create are yours, for any use: reports, articles, client decks, products. No attribution required; the optional graphmint.vercel.app caption is just a toggle.",
+        a: "Yes. Charts you create are yours, for any use: reports, articles, client decks, products. No attribution required; the optional graphmint.app caption is just a toggle.",
       },
     ],
     related: [
