@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { SiteHeader, SiteFooter } from "@/components/Site";
+import { contentPageGraph, jsonLdGraph } from "@/lib/jsonld";
+import { absoluteUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Terms of Use",
@@ -12,6 +14,19 @@ export const metadata: Metadata = {
 export default function TermsPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: jsonLdGraph(
+            contentPageGraph({
+              url: absoluteUrl("/terms"),
+              name: "Terms of Use",
+              description: metadata.description as string,
+              crumb: "Terms",
+            }),
+          ),
+        }}
+      />
       <SiteHeader />
       <main className="mx-auto max-w-3xl px-4 sm:px-6">
         <article className="content pt-12">

@@ -1,18 +1,26 @@
 import type { MetadataRoute } from "next";
 import { MAKERS } from "@/lib/makers";
-import { SITE_URL } from "@/lib/site";
+import { CONTENT_REVIEWED_ON, absoluteUrl } from "@/lib/site";
 
+/**
+ * Sitemap.
+ *
+ * `lastModified` is `CONTENT_REVIEWED_ON`, not the build clock. The nuance is
+ * the whole file: `new Date()` announced that every page had changed on every
+ * push, including the pushes that didn't touch a line of copy, and a sitemap
+ * that cries wolf ends up with its `lastmod` ignored — so the day a page
+ * really does change, the signal no longer carries.
+ *
+ * `changeFrequency` and `priority` are deliberately gone: Google has confirmed
+ * it reads neither, and the only thing they did here was go stale.
+ */
 export default function sitemap(): MetadataRoute.Sitemap {
-  const lastModified = new Date();
+  const lastModified = CONTENT_REVIEWED_ON;
+
   return [
-    { url: `${SITE_URL}/`, lastModified, changeFrequency: "weekly", priority: 1 },
-    ...MAKERS.map((m) => ({
-      url: `${SITE_URL}/${m.slug}`,
-      lastModified,
-      changeFrequency: "weekly" as const,
-      priority: 0.9,
-    })),
-    { url: `${SITE_URL}/privacy`, lastModified, changeFrequency: "yearly" as const, priority: 0.2 },
-    { url: `${SITE_URL}/terms`, lastModified, changeFrequency: "yearly" as const, priority: 0.2 },
+    { url: absoluteUrl("/"), lastModified },
+    ...MAKERS.map((m) => ({ url: absoluteUrl(`/${m.slug}`), lastModified })),
+    { url: absoluteUrl("/privacy"), lastModified },
+    { url: absoluteUrl("/terms"), lastModified },
   ];
 }

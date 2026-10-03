@@ -4,7 +4,7 @@ import { Studio } from "@/components/Studio";
 import { SiteHeader, SiteFooter } from "@/components/Site";
 import { TrustBadges, FaqList } from "@/components/MakerLanding";
 import { MAKERS } from "@/lib/makers";
-import { SITE_URL } from "@/lib/site";
+import { homeGraph, jsonLdGraph } from "@/lib/jsonld";
 
 export const metadata: Metadata = {
   title: { absolute: "Free Chart Maker: Beautiful Charts in Seconds, No Sign-Up | Graphmint" },
@@ -67,34 +67,11 @@ const TYPE_BLURBS: Record<string, string> = {
 };
 
 export default function HomePage() {
-  const jsonLd = [
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      name: "Graphmint",
-      url: SITE_URL,
-      applicationCategory: "DesignApplication",
-      operatingSystem: "Any (web browser)",
-      description:
-        "Free online chart maker. Create bar, line, pie, donut, area and scatter charts and export them as PNG or SVG, no sign-up.",
-      offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      mainEntity: HOME_FAQ.map((f) => ({
-        "@type": "Question",
-        name: f.q,
-        acceptedAnswer: { "@type": "Answer", text: f.a },
-      })),
-    },
-  ];
-
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
+        dangerouslySetInnerHTML={{ __html: jsonLdGraph(homeGraph(HOME_FAQ)) }}
       />
       <SiteHeader />
       <main className="mx-auto max-w-6xl px-4 sm:px-6">

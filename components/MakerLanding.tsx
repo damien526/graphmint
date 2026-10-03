@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { MakerPage } from "@/lib/makers";
-import { SITE_URL } from "@/lib/site";
+import { jsonLdGraph, makerGraph } from "@/lib/jsonld";
 import { Studio } from "./Studio";
 import { SiteHeader, SiteFooter } from "./Site";
 
@@ -46,52 +46,11 @@ export function FaqList({ faq }: { faq: { q: string; a: string }[] }) {
 }
 
 export function MakerLanding({ maker }: { maker: MakerPage }) {
-  const jsonLd = [
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      name: `${maker.h1} | Graphmint`,
-      url: `${SITE_URL}/${maker.slug}`,
-      applicationCategory: "DesignApplication",
-      operatingSystem: "Any (web browser)",
-      offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
-      featureList: "No sign-up, PNG export, SVG export, paste from Excel, share link",
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "HowTo",
-      name: `How to make a ${maker.h1.replace(/ Maker$/i, "").toLowerCase()}`,
-      step: maker.steps.map((s, i) => ({
-        "@type": "HowToStep",
-        position: i + 1,
-        name: s.name,
-        text: s.text,
-      })),
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      mainEntity: maker.faq.map((f) => ({
-        "@type": "Question",
-        name: f.q,
-        acceptedAnswer: { "@type": "Answer", text: f.a },
-      })),
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Graphmint", item: SITE_URL },
-        { "@type": "ListItem", position: 2, name: maker.h1, item: `${SITE_URL}/${maker.slug}` },
-      ],
-    },
-  ];
-
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
+        dangerouslySetInnerHTML={{ __html: jsonLdGraph(makerGraph(maker)) }}
       />
       <SiteHeader />
       <main className="mx-auto max-w-6xl px-4 sm:px-6">
