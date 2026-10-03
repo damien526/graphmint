@@ -33,7 +33,7 @@ export default function PrivacyPage() {
           <h1 className="font-display text-[2rem] font-semibold tracking-tight text-ink">
             Privacy Policy
           </h1>
-          <p className="mt-2 text-[13px] text-ink-3">Last updated: October 1, 2026</p>
+          <p className="mt-2 text-[13px] text-ink-3">Last updated: October 3, 2026</p>
 
           <h2>The short version</h2>
           <p>
@@ -66,8 +66,9 @@ export default function PrivacyPage() {
               <strong>Share links.</strong> When you click &ldquo;Share link&rdquo;, the chart is
               compressed and encoded into the part of the URL after the # symbol.
               Browsers do not send that fragment to servers, so the link works without
-              us storing anything. Keep in mind that anyone you give the link to can
-              read the chart it contains, and that URLs you share through other
+              us storing anything, and our analytics cut the fragment off before
+              anything is sent (see below). Keep in mind that anyone you give the link
+              to can read the chart it contains, and that URLs you share through other
               services (email, chat) are handled by those services.
             </li>
           </ul>
@@ -83,6 +84,12 @@ export default function PrivacyPage() {
             does not track you across sites. We see aggregated counts (page views,
             referrer, country, device type), not individual profiles. Data is
             processed on our behalf by Vercel Inc.
+          </p>
+          <p>
+            The address of the page you view is recorded without its query string and
+            without its # fragment, both of which are stripped in your own browser
+            before anything is sent. That is what keeps a shared chart link out of the
+            statistics: the chart encoded after the # never leaves your device.
           </p>
 
           <h2>Hosting and server logs</h2>

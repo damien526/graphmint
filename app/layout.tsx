@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
-import { Analytics } from "@vercel/analytics/react";
+import { Analytics } from "@/components/Analytics";
 import {
   SITE_DESCRIPTION,
   SITE_NAME,
