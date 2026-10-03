@@ -7,9 +7,15 @@ import { MAKERS } from "@/lib/makers";
 import { homeGraph, jsonLdGraph } from "@/lib/jsonld";
 
 export const metadata: Metadata = {
-  title: { absolute: "Free Chart Maker: Beautiful Charts in Seconds, No Sign-Up | Graphmint" },
+  // No "| Graphmint" in the `<title>`: with the suffix this ran to 69
+  // characters, and Google cuts around 60 — from the end, so the suffix cost
+  // "No Sign-Up", which is the part that differentiates the page. The brand
+  // belongs in `og:title` below, where a card arrives with no domain in sight.
+  title: { absolute: "Free Chart Maker: Beautiful Charts in Seconds, No Sign-Up" },
+  // 160 characters is where the desktop snippet is cut. This was 169, and the
+  // clause that went missing was the one naming the export formats.
   description:
-    "Make beautiful charts online for free. Paste data from Excel or Sheets, pick a gorgeous palette, and download your chart as PNG or SVG. No account, no watermark lock-in.",
+    "Make beautiful charts online for free. Paste data from Excel or Sheets, pick a gorgeous palette, and download as PNG or SVG. No account needed.",
   alternates: { canonical: "/" },
   openGraph: {
     title: "Graphmint: Free Chart Maker, No Sign-Up",

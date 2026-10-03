@@ -7,7 +7,7 @@ import { absoluteUrl } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
-    "How Graphmint handles your data: charts are rendered in your browser and never uploaded, there are no accounts and no cookies, and analytics are cookieless and aggregated.",
+    "Charts are rendered in your browser and never uploaded, there are no accounts and no cookies, and the analytics are cookieless and aggregate only.",
   alternates: { canonical: "/privacy" },
 };
 
