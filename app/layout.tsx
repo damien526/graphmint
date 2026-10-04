@@ -33,12 +33,13 @@ export const metadata: Metadata = {
   },
   description: SITE_DESCRIPTION,
   applicationName: SITE_NAME,
-  keywords: [
-    "chart maker",
-    "graph maker",
-    "free chart maker",
-    "online chart maker no sign up",
-  ],
+  /*
+   * No `keywords`. Google dropped meta keywords as a ranking signal in 2009 and
+   * has said since that it ignores the tag outright; Bing treats stuffing it as
+   * a negative signal. Four terms sat here doing nothing except inviting the
+   * next reader to maintain them. The terms themselves are not lost — they are
+   * in the title, the description and the maker catalogue, where they are read.
+   */
   /**
    * Open Graph and Twitter defaults, declared here rather than page by page.
    *

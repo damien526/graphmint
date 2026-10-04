@@ -54,6 +54,10 @@ const SISTER_TOOLS = [
   { href: "https://www.onlinecull.com", label: "OnlineCull: cull photos in your browser" },
   { href: "https://www.papercv.app", label: "PaperCV: free resume builder" },
   { href: "https://www.music-waveform.com", label: "Waveform: audio visualizer" },
+  // The two French-language tools. Labelled in English with the language named,
+  // so a reader here knows what they are getting before they click.
+  { href: "https://www.simulateurepargne.app", label: "Simulateur d’épargne: French savings simulator" },
+  { href: "https://www.kiturgence.app", label: "Kit Urgence: French emergency-kit planner" },
 ];
 
 const FOOTER_LINKS = [
