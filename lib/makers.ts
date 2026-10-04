@@ -290,7 +290,13 @@ export const MAKERS: MakerPage[] = [
     related: [
       { slug: "line-graph-maker", label: "Line graph maker" },
       { slug: "bar-graph-maker", label: "Bar graph maker" },
-      { slug: "donut-chart-maker", label: "Donut chart maker" },
+      // Scatter rather than donut, for two reasons. Editorially, area sits in
+      // the continuous family — line, area, scatter all plot a trend — while
+      // donut is part-to-whole and is already reached from pie and horizontal
+      // bar. Structurally, scatter was cited by one page in the whole
+      // catalogue; `lib/makers.test.ts` requires two, because a page nothing
+      // links to is a page that does not exist.
+      { slug: "scatter-plot-maker", label: "Scatter plot maker" },
     ],
   },
   {

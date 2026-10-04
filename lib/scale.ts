@@ -79,7 +79,14 @@ export function monotonePath(pts: [number, number][]): string {
     else {
       const w1 = 2 * dx[i] + dx[i - 1];
       const w2 = dx[i] + 2 * dx[i - 1];
-      tangent[i] = (w1 + w2) / (w1 / slope[i - 1] + w2 / slope[i]);
+      const t = (w1 + w2) / (w1 / slope[i - 1] + w2 / slope[i]);
+      // Guard against a zero-width span. Line and area charts space their
+      // points by index, so `dx` is a constant slot width and this cannot fire
+      // for them — but three consecutive points sharing an x make both weights
+      // zero, and 0/0 is NaN. A NaN inside a `d` attribute makes the browser
+      // drop the whole path without a word, so a flat tangent is the safe
+      // reading: no span, no slope to honour.
+      tangent[i] = isFinite(t) ? t : 0;
     }
   }
   let d = `M${pts[0][0]},${pts[0][1]}`;
