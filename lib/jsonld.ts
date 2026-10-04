@@ -206,20 +206,25 @@ export function faqPage(url: string, items: readonly { q: string; a: string }[])
   };
 }
 
-export function howTo(url: string, name: string, steps: readonly { name: string; text: string }[]): Node {
-  return {
-    "@type": "HowTo",
-    "@id": `${url}#howto`,
-    name,
-    inLanguage: "en",
-    step: steps.map((step, index) => ({
-      "@type": "HowToStep",
-      position: index + 1,
-      name: step.name,
-      text: step.text,
-    })),
-  };
-}
+/*
+ * No `HowTo` node here, deliberately.
+ *
+ * Google removed the how-to rich result from Search in September 2023 — not
+ * restricted it, removed it. The markup renders nothing, for anyone. It used to
+ * wrap `maker.steps` on all seven maker pages, which is seven `HowTo` nodes and
+ * their `HowToStep` children of payload buying a SERP feature that no longer
+ * exists.
+ *
+ * `maker.steps` is NOT dead with it: the steps are still written in
+ * `lib/makers.ts`, still rendered by `MakerLanding`, and still the part of the
+ * page a reader actually follows. What is gone is the duplicate copy of them in
+ * the graph.
+ *
+ * Do not reinstate this without first checking that Google has brought the
+ * feature back. `FAQPage` stays, for the reason spelled out above its own
+ * function: its rich result is equally gone, but it is read by answer engines,
+ * and being quoted correctly by one is this site's main road in.
+ */
 
 export function breadcrumb(url: string, trail: { name: string; url: string }[]): Node {
   return {
@@ -256,7 +261,7 @@ export function homeGraph(faq: readonly { q: string; a: string }[]): Node[] {
   ];
 }
 
-/** A maker page: document, FAQ, how-to, breadcrumb, and the base. */
+/** A maker page: document, FAQ, breadcrumb, and the base. */
 export function makerGraph(maker: MakerPage): Node[] {
   const url = absoluteUrl(`/${maker.slug}`);
   return [
@@ -271,7 +276,6 @@ export function makerGraph(maker: MakerPage): Node[] {
     }),
     webApplication(),
     faqPage(url, maker.faq),
-    howTo(url, `How to make a ${maker.h1.replace(/ Maker$/i, "").toLowerCase()}`, maker.steps),
     breadcrumb(url, [HOME_CRUMB, { name: maker.h1, url }]),
   ];
 }
